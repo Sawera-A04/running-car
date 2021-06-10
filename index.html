@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Car Running</title>
+</head>
+<body>
+    <div class="background">
+        <div class="buttons">
+            <button class="btn" onclick="start()">Start</button>&nbsp;
+            <button class="btn" onclick="stop()">Stop</button>
+        </div>
+    </div>
+    <div class="road">
+        <img src="images/car.png" id="car" alt="car" />
+    </div>
+
+    <script>
+        m=0;
+        var x;
+        function start()
+        {
+             x=setInterval(run,100); 
+            function run()
+            {
+                if(m==1000)
+                {
+                    clearInterval(x);
+                    m=0;
+                }
+                else{
+                    m+=10;
+                    var c=document.getElementById("car");
+                    c.style.marginLeft=m+"px";
+                }
+            }
+        }
+        // stop car function
+        function stop()
+        {
+            clearInterval(x);
+        }
+    </script>
+</body>
+</html>
